@@ -1,7 +1,5 @@
 package com.example.pm1e2grupo4;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -11,6 +9,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -47,6 +47,7 @@ public class EditActivity extends AppCompatActivity {
         aelongitud = (EditText) findViewById(R.id.aeLongitud);
         btnEditar = (Button) findViewById(R.id.btnEditar);
 
+
         progressDialog = new ProgressDialog(this);
 
         Id_usuario = getIntent().getStringExtra("id_usuario");
@@ -55,7 +56,6 @@ public class EditActivity extends AppCompatActivity {
         aetelefono.setText(getIntent().getStringExtra("telefono"));
         aelatitud.setText(getIntent().getStringExtra("latitud"));
         aelongitud.setText(getIntent().getStringExtra("longitud"));
-
 
         btnEditar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -137,4 +137,5 @@ public class EditActivity extends AppCompatActivity {
         });
 
     }
+
 }

@@ -79,7 +79,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
                 final ProgressDialog dialog = new ProgressDialog(view.getContext());
                 dialog.setMessage("Cargando los datos borrados");
 
-                final CharSequence[] dialogitem = {"Ver Datos","Editar Datos","Borrar Datos","Ubicacion en Google Maps"};
+                final CharSequence[] dialogitem = {"Ver Datos","Editar Datos","Ubicacion en Google Maps","Borrar Datos"};
                 builder.setTitle(listItem.getNombre());
                 builder.setItems(dialogitem, new DialogInterface.OnClickListener() {
                     @Override
@@ -105,7 +105,14 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
                                 view.getContext().startActivity(intent2);
                                 break;
 
-                            case 2 :
+                            case 2:
+                                Intent intent3 = new Intent(view.getContext(), MapsActivity.class);
+                                intent3.putExtra("latitud",listItem.getLatitud());
+                                intent3.putExtra("longitud", listItem.getLongitud());
+                                view.getContext().startActivity(intent3);
+                                break;
+
+                            case 3 :
                                 AlertDialog.Builder builderDel = new AlertDialog.Builder(view.getContext());
                                 builderDel.setTitle(listItem.getNombre());
                                 builderDel.setMessage("¿Está seguro de que desea eliminar los datos?");

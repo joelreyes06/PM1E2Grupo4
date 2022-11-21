@@ -1,24 +1,21 @@
 package com.example.pm1e2grupo4;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.DefaultItemAnimator;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -39,8 +36,10 @@ import java.util.Map;
 
 public class ListarActivity extends AppCompatActivity {
 
-    Button btnAtras;
+    Button btnAtras, btnUbi,btnBuscar;
     EditText txtBuscar;
+    EditText aeid, aenombre, aetelefono, aelatitud, aelongitud;
+    String Id_usuario, Nombre, Telefono, Latitud, Longitud;
 
     public static ListarActivity ma;
     protected Cursor cursor;
@@ -62,6 +61,7 @@ public class ListarActivity extends AppCompatActivity {
         btnAtras = (Button) findViewById(R.id.btnAtras);
         txtBuscar = (EditText) findViewById(R.id.txtBuscar);
 
+
         getSupportActionBar().setTitle("Listar Datos");
 
         recyclerView = (RecyclerView) findViewById(R.id.lista);
@@ -72,6 +72,14 @@ public class ListarActivity extends AppCompatActivity {
         ma = this;
 
         refresh_list();
+
+       /* btnUbi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), MapsActivity.class);
+                startActivity(intent);
+            }
+        });*/
 
         btnAtras.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -97,9 +105,9 @@ public class ListarActivity extends AppCompatActivity {
 
 
                 if (s.toString().trim().length() == 0) {
-                    BusquedadPersonalizada("");
+                    //BusquedadPersonalizada("");
                 } else {
-                    BusquedadPersonalizada(s.toString());
+                  //  BusquedadPersonalizada(s.toString());
                 }
 
 
@@ -107,9 +115,9 @@ public class ListarActivity extends AppCompatActivity {
         });
     }
 
-    private void BusquedadPersonalizada(String s) {
 
-    }
+
+
 
     public void refresh_list(){
         listItems.clear();

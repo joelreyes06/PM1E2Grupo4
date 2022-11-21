@@ -193,7 +193,6 @@ public class MainActivity extends AppCompatActivity {
                             params.put("telefono", Telefono);
                             params.put("latitud", Latitud);
                             params.put("longitud", Longitud);
-
                             return params;
                         }
                     };
